@@ -3,7 +3,7 @@
 A minimal repro for a change in SharePoint Online behaviour seen from
 mid-November 2026. For a user who is a site collection administrator,
 SharePoint reports `IsSiteAdmin = false` to an app's delegated token that has
-`AllSites.Manage`. The same user's own browser request reports `true`.
+`AllSites.Manage` and not `AllSites.FullControl`. The same user's own browser request reports `true`.
 Granting the app `AllSites.FullControl` appears to make the problem go away.
 
 The script signs in with the device-code flow, so it needs no web app and no
@@ -31,8 +31,9 @@ Each line shows the UTC time, the status, the `IsSiteAdmin` value, and the
    registration**. Any name; single tenant is fine; no redirect URI.
 2. Under **Authentication**, set **Allow public client flows** to **Yes**.
    This is what lets the script use the device-code sign-in.
-3. Under **API permissions**, add **SharePoint** > **Delegated permissions**
-   > **AllSites.Manage**, and grant admin consent.
+3. Under **API permissions**, add the SharePoint delegated permission
+   **AllSites.Manage** (**SharePoint** > **Delegated permissions**), and grant
+   admin consent.
    - Do not add `AllSites.FullControl` yet. That is the comparison run.
 4. Copy the **Application (client) ID**.
 

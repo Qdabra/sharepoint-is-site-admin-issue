@@ -1,0 +1,4 @@
+# Run output: contains user names, tenant IDs and request IDs.
+results/
+node_modules/
+.env

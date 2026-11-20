@@ -1,0 +1,14 @@
+{
+    "name": "sharepoint-is-site-admin-issue",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Minimal repro: SharePoint Online reports IsSiteAdmin=false to a delegated token for a site collection administrator",
+    "type": "module",
+    "engines": {
+        "node": ">=18"
+    },
+    "scripts": {
+        "repro": "node repro.mjs",
+        "test": "node --test"
+    }
+}
